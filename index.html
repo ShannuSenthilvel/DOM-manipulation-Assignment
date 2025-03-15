@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+    margin: 0;
+    padding: 0;
+}
+
+h1{
+    text-align: center;
+}
+
+.content_container{
+    display: flex;
+    flex-wrap: wrap; 
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    max-width: 960px; 
+    margin: 0 auto; 
+
+}
+
+.content_container img {
+    max-width: 40%; 
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); 
+}
+
+.content_container p {
+    flex: 1; 
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start; 
+    gap: 40px;
+    padding: 40px;
+    background-color: #fff;
+}
+
+.container p{
+    margin: 30px;
+}
+
+.img_container {
+    display: flex;
+    flex-wrap: wrap; 
+    align-items: center;
+    justify-content: center;
+    max-width: 960px; 
+    margin: 0 auto; 
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    }
+.img_container img{
+    max-width: 40%; 
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); 
+}
+
+.enroll-btn {
+        background-color: #f05050; 
+        color: #fff;
+        padding: 15px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s;
+        width: auto; 
+        display: block; 
+        margin: 20px auto; 
+    }
+
+.enroll-btn a{
+    text-decoration: none;
+    color: azure;
+    font-style: italic;
+}
+
+
+.menu-icon {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 101;
+}
+
+/*...............................................................Navbar styling................................................................*/
+
+.hamburger-icon {
+  position: absolute;
+  z-index: 1;
+  top: 5vh;
+  left: 5vw;
+  padding-bottom: 2vh;
+}
+
+.hamburger-icon span {
+  height: 5px;
+  width: 40px;
+  background-color: black;
+  display: block;
+  margin: 5px 0px 5px 0px;
+  transition: 0.7s ease-in-out;
+  transform: none;
+}
+
+#openmenu:checked ~ .menu-pane {
+  left: -5vw;
+  transform: translateX(-5vw);
+}
+
+#openmenu:checked ~ .body-text {
+display: none;
+}
+
+#openmenu:checked ~ .hamburger-icon span:nth-of-type(2) {
+  transform: translate(0%, 175%) rotate(-45deg);
+  background-color: white;
+}
+
+#openmenu:checked ~ .hamburger-icon span:nth-of-type(3) {
+  transform: rotate(45deg);
+  background-color: white;
+}
+
+#openmenu:checked ~ .hamburger-icon span:nth-of-type(1) {
+  opacity: 0;
+}
+
+#openmenu:checked ~ .hamburger-icon span:nth-of-type(4) {
+  opacity: 0;
+}
+
+div.menu-pane {
+    background-color: #000;
+    position: absolute;
+    transform: translateX(-105vw);
+    transform-origin: 0 0; 
+    width: 100vw;
+    height: 100%;
+    transition: 0.6s ease-in-out;
+}
+
+.menu-pane p {
+  color: rgb(41, 39, 39);
+  font-size: 0.6em;
+}
+
+.menu-pane nav {
+  padding: 10%;
+  margin-left: 25%;
+}
+
+
+.menu-links li, a, span {
+      transition: all 0.5s ease-in-out;
+}
+.menu-links li a {
+    display: flex;
+    align-items: center; 
+    position: relative; 
+    text-decoration: none;
+    color: white;
+}
+
+.menu-links li a img {
+  height: 70px;
+  width: 60px;
+  margin-right: 10px;
+}
+
+.menu-links li a span {
+    position: absolute;
+    left: -100%; 
+    white-space: nowrap; 
+    transition: left 0.3s ease; 
+}
+
+.menu-links li a:hover span {
+    left: 60px; 
+    color: #FFAB91; 
+    
+}
+.menu-pane ul {
+  margin-left: 5%;
+  padding: 5%;
+  display: inline-block;
+}
+.menu-pane li {
+  padding-top: 5px;
+  padding-bottom: 20px;
+  margin-left: 10px;
+  font-size: 1em;
+  
+}
+.menu-links li a {
+    color: white;
+    text-decoration: none;
+}
+
+.menu-links li:hover span {
+    color: #FFAB91;
+    display: block;
+    margin: 20%;
+} 
+
+input.hamburger-checkbox {
+  position: absolute;
+  z-index: 3;
+  top: 5vh;
+  left: 5vw;
+  width: 10vw;
+  opacity: 0;
+  height: 6vh;
+}
+
+/*---------------------------------------------------------Footer styling--------------------------------------------------------*/
+
+footer {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    text-align: center;
+    padding-top: 50px; 
+    height: 250px;
+    color: #fff;
+}
+
+.wave-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; /* Cover the entire footer */
+    overflow: hidden;
+}
+
+.wave {
+    position: absolute;
+    width: 200%;
+    height: 100%;
+    bottom: 0;
+    animation: wave 4s linear infinite;
+    clip-path: polygon(0% 40%, 25% 50%, 50% 40%, 75% 30%, 100% 40%, 100% 100%, 0% 100%);
+    background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.3)); 
+}
+
+@keyframes wave {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.footer-content {
+    position: relative;
+    z-index: 10;
+}
+
+.social-icons {
+    margin-top: 70px;
+}
+
+.social-icons .icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: #555;
+    color: #fff;
+    border-radius: 50%;
+    margin: 0 10px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.social-icons .icon:hover {
+    background-color: #007bff;
+    transform: scale(1.1);
+}
+
+.social-icons .icon i {
+    font-size: 1.2em;
+}
+
+footer p {
+    font-size: 0.9em;
+}
+
+
+</style>
+</head>
+<body>
+    <header>
+        <h1>Student Registration System</h1>
+        <div class="menu-container">
+  
+            <input type="checkbox" id="openmenu" class="hamburger-checkbox">
+            
+            <div class="hamburger-icon">
+              <label for="openmenu" id="hamburger-label">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+              </label>    
+            </div>
+          
+              <div class="menu-pane">
+                <nav>
+                  <ul class="menu-links">
+                      <li ><a href="./register.html"><img src="./images/registration.png"><span>Register</span></a></li>
+                      <li><a href="./records.html"><img src="./images/user.png"><span>Records</span></a></li>
+                      <li ><a href="./about.html"><img src="./images/information.png"><span>About us</span></a></li>
+                      <li ><a href="./contact.html"><img src="./images/information-channels.png"><span>Contact us</span></a></li>
+                  </ul>
+              </nav>
+              </div>
+    </header>
+    <main>
+        <main>
+            <section class="introduction" id="Home">
+                <div class="content_container">
+                    <img src="./images/Introduction.jpg" alt="Introduction image">
+                    <p>A student details registration system is a comprehensive platform designed to streamline and manage the vast amount of information associated with students throughout their academic journey.  
+                        This system typically encompasses a wide range of functionalities, from initial enrollment and demographic data capture to academic performance tracking, attendance management, and communication tools.  
+                        Upon a student's initial registration, the system securely stores personal details like name, date of birth, contact information, and emergency contacts.  
+                        It also facilitates the recording of academic information, including program of study, courses enrolled, grades earned, and transcripts.  
+                        Beyond academics, the system can manage attendance records, track disciplinary actions, and store information regarding extracurricular activities and achievements.  
+                        Furthermore, a robust student details registration system often includes communication modules that allow for seamless interaction between students, faculty, and parents, facilitating announcements, grade updates, and personalized messages.  
+                        Security is paramount, with access controls and data encryption ensuring the privacy and confidentiality of sensitive student information.  
+                        Modern systems may also offer self-service portals, empowering students to access their own records, update contact information, and even register for courses, thereby increasing efficiency and reducing administrative overhead.  
+                        In essence, a well-designed student details registration system serves as a central hub for all student-related data, providing a valuable resource for educational institutions to manage student information effectively, track progress, and facilitate communication.
+                        </p>
+                </div>
+            </section>
+    
+            <section id="Register">
+                <div class="container">
+                    <h1>Why you should Register?</h1>
+                    <div class="img_container">
+                        <img src="./images/Registration_form.jpg" alt="Registration form pic">
+                        <p>Registering in our student registration system offers numerous benefits. 
+                            It streamlines the enrollment process, providing a user-friendly platform to easily select courses, access schedules, and manage personal information. 
+                            The system also facilitates direct communication with faculty and peers, ensuring you stay informed about important updates and deadlines. 
+                            Additionally, it centralizes all academic records, making it simple to track progress and request necessary documents. 
+                            By registering, you gain access to a comprehensive tool designed to enhance your academic journey and simplify administrative tasks.
+                        </p>
+                        <button class="enroll-btn"><a href="#Regsiter">Enroll</a></button>
+                        </div>
+                        </div>
+        </section>
+    </main>
+    <footer>
+        <div class="wave-container">
+            <div class="wave wave1"></div>
+            <div class="wave wave2"></div>
+            <div class="wave wave3"></div>
+        </div>
+        <div class="footer-content">
+            <div class="social-icons">
+                <a href="#" class="icon"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="icon"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="icon"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="icon"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="icon"><i class="fab fa-youtube"></i></a>
+            </div>
+            <p>&copy; 2024 My Realistic Wave Footer</p>
+        </div>
+    </footer>
+</body>
+
+</html>
